@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Component</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <!-- Top Information Bar -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-bar-left">
+                    <a href="mailto:info@company.com" class="top-bar-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        info@company.com
+                    </a>
+                    <a href="tel:+971501234567" class="top-bar-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        +971 50 123 4567
+                    </a>
+                </div>
+                <div class="top-bar-right">
+                    <span class="top-bar-text">Serving UAE • Saudi Arabia • Qatar • Kuwait • Bahrain • Oman</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container main-header-container">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 50'%3E%3Crect fill='%23ffffff' width='170' height='50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='18' fill='%230B4EA2'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Company Logo" class="logo-img">
+                </a>
+
+                <!-- Navigation -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item has-mega-menu">
+                            <a href="#" class="nav-link" data-menu="products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Brands</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">RFQ Center</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Right Side Actions -->
+                <div class="header-actions">
+                    <!-- Search -->
+                    <button class="search-btn" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </button>
+
+                    <!-- Request Quote Button -->
+                    <a href="#" class="request-quote-btn">
+                        Request Quote
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button class="mobile-hamburger" aria-label="Menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mega Menu -->
+        <div class="mega-menu" id="megaMenu">
+            <div class="container mega-menu-container">
+                <div class="mega-menu-grid">
+                    <!-- Column 1 -->
+                    <div class="mega-column">
+                        <h3 class="mega-column-title">Systems</h3>
+                        <ul class="mega-links">
+                            <li><a href="#">Plumbing</a></li>
+                            <li><a href="#">HVAC</a></li>
+                            <li><a href="#">Fire Fighting</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="mega-column">
+                        <h3 class="mega-column-title">Equipment</h3>
+                        <ul class="mega-links">
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Gas Systems</a></li>
+                            <li><a href="#">Pumps</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="mega-column">
+                        <h3 class="mega-column-title">Specialty</h3>
+                        <ul class="mega-links">
+                            <li><a href="#">Water Treatment</a></li>
+                            <li><a href="#">Tools</a></li>
+                            <li><a href="#" class="featured-brands">Featured Brands →</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Premium Card -->
+                    <div class="mega-premium-card">
+                        <h4 class="premium-title">Need Help Finding Products?</h4>
+                        <p class="premium-description">Our procurement specialists are ready to assist you with sourcing the exact products you need.</p>
+                        <a href="#" class="premium-cta">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 50'%3E%3Crect fill='%23ffffff' width='170' height='50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-weight='700' font-size='18' fill='%230B4EA2'%3ELOGO%3C/text%3E%3C/svg%3E" alt="Company Logo" class="drawer-logo">
+            <button class="drawer-close" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-content">
+            <ul class="drawer-nav-list">
+                <li class="drawer-nav-item">
+                    <a href="#" class="drawer-nav-link">Products</a>
+                </li>
+                <li class="drawer-nav-item">
+                    <a href="#" class="drawer-nav-link">Brands</a>
+                </li>
+                <li class="drawer-nav-item">
+                    <a href="#" class="drawer-nav-link">RFQ Center</a>
+                </li>
+                <li class="drawer-nav-item">
+                    <a href="#" class="drawer-nav-link">About</a>
+                </li>
+                <li class="drawer-nav-item">
+                    <a href="#" class="drawer-nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="drawer-contact">
+                <a href="mailto:info@company.com" class="drawer-contact-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    info@company.com
+                </a>
+                <a href="tel:+971501234567" class="drawer-contact-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    +971 50 123 4567
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="header.js"></script>
+</body>
+</html>
