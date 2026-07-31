@@ -1,413 +1,291 @@
-# Elementor Integration Notes - Enterprise Header
+# Elementor Integration Notes
+## GCCMEP Standalone Semantic Enterprise Footer
+
+---
 
 ## Overview
-This enterprise header component is designed for seamless conversion into WordPress Elementor Pro. The code follows modular, container-based architecture that maps directly to Elementor's Flexbox Containers and Grid system.
+This footer component is designed for seamless integration into Elementor using native Flexbox Containers. The structure follows a 1:1 mapping ratio, ensuring each major section translates directly to an Elementor container preset without complex nesting.
 
 ---
 
 ## File Structure
 ```
-header.html     → HTML structure for reference
-header.css      → Complete styling (import into Elementor Custom CSS)
-script.js       → JavaScript functionality (add to Elementor Custom Code)
+footer.html    → Paste into Elementor HTML Widget
+footer.css     → Add to Custom CSS tab or theme stylesheet
 ```
 
 ---
 
-## Elementor Container Mapping
+## Step-by-Step Integration Guide
 
-### 1. Main Header Wrapper
-**Elementor Type:** Flexbox Container  
-**Direction:** Column  
-**ID:** `enterprise-header`  
-**CSS Classes:** `enterprise-header`
+### Method A: HTML Widget (Recommended)
 
-**Settings:**
-- Content Width: Full Width
-- Min Height: Default
-- Overflow: Visible
-- Z-Index: 1000
+1. **Add HTML Widget**
+   - Drag an HTML widget into your Elementor page template
+   - Paste the entire `footer.html` content into the HTML Code field
+
+2. **Add Custom CSS**
+   - Navigate to Page Settings → Advanced → Custom CSS
+   - OR go to Site Settings → Custom CSS
+   - Paste the entire `footer.css` content
+
+3. **Verify Container Width**
+   - Ensure your page template allows full-width sections
+   - Set Section Layout → Content Width to "Full Width"
+   - Set Columns Gap to "No Gap"
 
 ---
 
-### 2. Top Bar Section
-**Elementor Type:** Flexbox Container  
-**Direction:** Row  
-**CSS Classes:** `top-bar`, `container`
+### Method B: Native Elementor Containers (Alternative)
 
-**Settings:**
+If you prefer rebuilding with native Elementor widgets instead of HTML:
+
+#### Main Container Setup
+| Setting | Value |
+|---------|-------|
+| Content Width | Full Width |
+| Min Height | Default |
+| Overflow | Hidden |
+| Background Color | `#0A2540` |
+
+#### Grid Layout Configuration
+Create a **Flexbox Container** with these settings:
+- **Direction**: Row (Horizontal)
+- **Wrap**: Wrap
+- **Justify Content**: Space Between
+- **Align Items**: Start (Top)
+- **Gap**: 24px
+
+#### Column Distribution (Desktop)
+| Column | Width | Content Type |
+|--------|-------|--------------|
+| Col 1 (Identity) | 25% (2fr) | Heading + Text Editor + Icon Box ×3 |
+| Col 2 (Products) | 18.75% (1fr) | Heading + Icon List |
+| Col 3 (Company) | 18.75% (1fr) | Heading + Icon List |
+| Col 4 (Industries) | 18.75% (1fr) | Heading + Icon List |
+| Col 5 (Contact) | 18.75% (1fr) | Heading + Text Editor ×3 + Divider |
+
+---
+
+## Container Alignment Mapping
+
+### COLUMN 1: Corporate Identity Block
+**Elementor Container Settings:**
+- Width: 25% (or 2fr equivalent)
+- Align Items: Flex Start
+- Gap: 24px
+
+**Internal Widgets:**
+1. **Heading Widget** (Logo)
+   - HTML Tag: `div`
+   - Content: `GCC<span style="color: #00AEEF;">MEP</span>`
+   - Typography: 24px, Weight 800
+   
+2. **Text Editor Widget** (Summary)
+   - Max Width: 280px
+   - Typography: 15px, Line-height 1.6
+   - Color: `#94A3B8`
+
+3. **Icon Box / Social Icons Widget**
+   - Layout: Horizontal
+   - Icon Size: 48px × 48px
+   - Border Radius: 50%
+   - Border: 1.5px solid `#1E293B`
+   - Hover Animation: Translate Y -4px
+
+---
+
+### COLUMNS 2-4: Link Lists (Products, Company, Industries)
+**Elementor Container Settings:**
+- Width: 18.75% each
+- Align Items: Flex Start
+- Gap: 24px
+
+**Internal Widgets:**
+1. **Heading Widget**
+   - HTML Tag: `h4`
+   - Typography: 18px, Weight 600, Letter-spacing 0.5px
+   - Color: `#FFFFFF`
+   - Margin Bottom: 8px
+
+2. **Icon List Widget**
+   - Orientation: Vertical
+   - Gap: 12px
+   - Link Typography: 15px, Weight 400
+   - Normal Color: `#94A3B8`
+   - Hover Color: `#00AEEF`
+   - Hover Animation: Slide Right 4px + Underline
+
+---
+
+### COLUMN 5: Contact & Logistics
+**Elementor Container Settings:**
+- Width: 18.75%
+- Align Items: Flex Start
+- Gap: 24px
+
+**Internal Widgets:**
+1. **Heading Widget**
+   - Content: "Contact & Logistics"
+   
+2. **Text Editor / Button Widgets** (Email & Phone)
+   - Style: Plain text links
+   - Color: `#94A3B8`
+   - Hover Color: `#00AEEF`
+
+3. **Text Editor Widget** (Operating Hours)
+   - Color: `#94A3B8`
+
+4. **Divider Widget**
+   - Weight: 1px
+   - Color: `#1E293B`
+
+5. **Text Editor Widget** (Service Regions)
+   - Content: `Serving: UAE | KSA | QA | KW | BH | OM`
+   - Color: `#FFFFFF`
+   - Weight: 500
+
+---
+
+## Copyright Row Container
+
+**Elementor Container Settings:**
+- Direction: Row
 - Justify Content: Space Between
 - Align Items: Center
-- Min Height: 38px
-- Background: Gradient (#0A2540 → #1E3A5F)
+- Padding Top/Bottom: 24px
+- Gap: 24px
 
-**Child Containers:**
-- **Left Container** (`top-bar-left`): Email + Phone
-- **Right Container** (`top-bar-right`): GCC Countries + Office Hours
+**Internal Widgets:**
+1. **Text Editor** (Left)
+   - Content: `© 2026 GCCMEP Platform. All Rights Reserved.`
+   - Color: `#94A3B8`
 
----
-
-### 3. Main Header Section
-**Elementor Type:** Flexbox Container  
-**Direction:** Row  
-**CSS Classes:** `main-header`, `container`
-
-**Settings:**
-- Justify Content: Space Between
-- Align Items: Center
-- Min Height: 92px
-- Background: White (#FFFFFF)
-- Border Bottom: 1px solid #E2E8F0
-
-**Child Containers:**
-- **Logo Container** (`logo-wrapper`): Left side
-- **Navigation Container** (`main-nav`): Center (Desktop only)
-- **Actions Container** (`header-actions`): Right side
+2. **Icon List / Nav Menu** (Right)
+   - Layout: Horizontal
+   - Gap: 24px
+   - Links: Privacy Policy | Terms & Conditions | Sitemap
+   - Normal Color: `#94A3B8`
+   - Hover Color: `#FFFFFF`
 
 ---
 
-### 4. Logo Widget
-**Elementor Type:** Image or Site Logo  
-**CSS Classes:** `logo-link`, `logo-placeholder`
+## Responsive Breakpoint Configuration
 
-**Alternative:** Use Text Editor widget with custom HTML:
-```html
-<span class="logo-text">MEP<span class="logo-accent">PROCURE</span></span>
+### Tablet (1024px - 768px)
+| Setting | Value |
+|---------|-------|
+| Container Direction | Row (Wrap Enabled) |
+| Columns Per Row | 2 |
+| Identity Column | Span 2 columns |
+| Contact Column | Span 2 columns |
+| Gap | 40px |
+
+**Elementor Actions:**
+- Set Container → Wrap: Yes
+- Use Responsive Width controls for each column
+- Adjust padding to 60px top, 40px bottom
+
+---
+
+### Mobile (≤767px)
+| Setting | Value |
+|---------|-------|
+| Container Direction | Column |
+| Width | 100% |
+| Text Align | Center |
+| Align Items | Center |
+| Gap | 32px |
+
+**Elementor Actions:**
+- Switch to Mobile View in responsive mode
+- Change Container Direction to Column
+- Set all child containers to 100% width
+- Enable Center alignment for text and flex items
+- Set minimum touch target height: 44px for all links
+
+---
+
+## CSS Variable Customization
+
+All brand colors are defined as CSS variables at the root level. To customize:
+
+```css
+:root {
+  --footer-primary-blue: #0057B8;      /* Trust Enterprise Blue */
+  --footer-secondary-navy: #0A2540;    /* Deep Corporate Navy (BG) */
+  --footer-accent-cyan: #00AEEF;       /* High-Visibility Cyan */
+  --footer-border-charcoal: #1E293B;   /* Border Partitions */
+  --footer-text-primary: #FFFFFF;      /* Pure White */
+  --footer-text-secondary: #94A3B8;    /* Slate Muted Gray */
+}
 ```
 
----
-
-### 5. Navigation Menu
-**Elementor Type:** Nav Menu Widget  
-**CSS Classes:** `nav-list`
-
-**Settings:**
-- Layout: Horizontal
-- Pointer: None (custom styling applied)
-- Dropdown: Classic
-
-**Menu Items:**
-1. Products (with Mega Menu)
-2. Brands
-3. RFQ Center
-4. About
-5. Contact
+Modify these values in your Custom CSS to instantly retheme the entire footer.
 
 ---
 
-### 6. Mega Menu Implementation
+## Performance Optimization Checklist
 
-**Option A: Elementor Pro Nav Menu**
-- Use Elementor's built-in mega menu feature
-- Create a 4-column grid in the dropdown
-- Add promotional card in rightmost column
-
-**Option B: Custom HTML Widget**
-Paste the mega-menu HTML structure inside the Products menu item using custom code.
-
-**Mega Menu Grid Settings:**
-- Columns: 4
-- Gap: 32px
-- Width: 900px
-- Padding: 32px
-- Border Radius: 12px
-- Box Shadow: 0 16px 48px rgba(0,0,0,0.15)
-
-**Column Structure:**
-```
-Column 1: Plumbing, HVAC, Fire Fighting
-Column 2: Electrical, Gas Systems, Pumps
-Column 3: Water Treatment, Tools, Featured Brands
-Column 4: Promotional Card (Gradient background)
-```
+- ✅ No JavaScript dependencies
+- ✅ Pure CSS3 animations (GPU-accelerated)
+- ✅ Minimal DOM depth (flat structure)
+- ✅ Semantic HTML5 elements
+- ✅ System font stack fallback
+- ✅ Reduced motion support via `prefers-reduced-motion`
+- ✅ High contrast mode support
 
 ---
 
-### 7. Search Trigger
-**Elementor Type:** Icon Widget  
-**CSS Classes:** `search-trigger`
+## Accessibility Features
 
-**Settings:**
-- Icon: Search (magnifying glass)
-- Size: 20px
-- Color: #4A5568
-- Hover Color: #0A2540
-
-**Alternative:** Use Button widget with icon only, styled as circle.
-
----
-
-### 8. Request Quote Button
-**Elementor Type:** Button Widget  
-**CSS Classes:** `btn`, `btn-primary`, `request-quote-btn`
-
-**Settings:**
-- Text: "Request Quote"
-- Link: Your quote page URL
-- Background: Gradient (#C9A227 → #D4AF37)
-- Text Color: #0A2540
-- Border Radius: 8px
-- Padding: 8px 32px
-- Typography: 14px, Weight 600
-
-**Hover Effect:**
-- Transform: Translate Y -2px
-- Shadow: Medium elevation
-
----
-
-### 9. Mobile Menu Toggle
-**Elementor Type:** Not needed (handled by Elementor's responsive Nav Menu)
-
-**Alternative:** If using custom implementation:
-- Use Icon widget with hamburger icon
-- CSS Classes: `mobile-menu-toggle`
-- Visibility: Mobile Only
-
----
-
-### 10. Off-Canvas Mobile Menu
-**Elementor Type:** Popup Template
-
-**Create a new Popup:**
-1. Templates → Popups → Add New
-2. Design mobile menu layout
-3. Set trigger to hamburger button
-4. Animation: Slide In From Right
-5. Overlay: Enable with dark background
-
-**Popup Settings:**
-- Width: 100% (max 400px)
-- Height: 100vh
-- Position: Fixed, Right: 0
-- Z-Index: 1002
-
-**Inside Popup:**
-- Header: Logo + Close button
-- Nav Menu Widget (Vertical layout)
-- Contact Info section
-- CTA Button (Request Quote)
-
----
-
-## CSS Integration Methods
-
-### Method 1: Global Custom CSS (Recommended)
-**Location:** Elementor → Site Settings → Custom Code → Custom CSS
-
-Copy entire `header.css` content here for global application.
-
-### Method 2: Page-Specific CSS
-**Location:** Page Settings → Advanced → Custom CSS
-
-Paste CSS for individual page customization.
-
-### Method 3: HTML Widget
-Add `<style>` tags inside an HTML widget at the top of your header template.
-
----
-
-## JavaScript Integration
-
-### Location: Elementor → Site Settings → Custom Code → Body Scripts
-
-**Steps:**
-1. Go to Elementor Dashboard
-2. Site Settings → Custom Code
-3. Add New Script
-4. Paste `script.js` content
-5. Set location: Body End
-6. Set display: Entire Site
-
-**Alternative:** Use a plugin like "Header Footer Code Manager"
-
----
-
-## Responsive Breakpoints
-
-### Desktop (>1024px)
-- Full navigation visible
-- Mega menu enabled
-- Search trigger visible
-- Request Quote button visible
-
-### Tablet (768px - 1024px)
-- Serving text hidden
-- Mega menu: 2 columns
-- Reduced padding
-
-### Mobile (<768px)
-- Top bar hidden
-- Desktop nav hidden
-- Hamburger menu visible
-- Off-canvas menu active
-- Search & CTA moved to mobile menu
-
----
-
-## Sticky Header Setup
-
-### Elementor Motion Effects
-**Container Settings:**
-- Select Main Header Container
-- Motion Effects → Sticky → Top
-- Effects Offset: 0
-- Sticky On: Desktop, Tablet, Mobile
-
-### CSS Class Method
-Add class `sticky` via Elementor's Advanced → CSS Classes when scroll threshold is reached (handled by script.js).
-
----
-
-## Typography Settings
-
-**Font Family:** Inter (or similar sans-serif)  
-**Load via:** Elementor → Site Settings → Global Fonts
-
-**Sizes:**
-- Top Bar: 12px
-- Nav Links: 14px
-- Logo: 24px
-- Mobile Nav: 20px
-
-**Weights:**
-- Regular: 400
-- Medium: 500
-- Semi-Bold: 600
-- Bold: 700
-
----
-
-## Color Palette (Global Colors)
-
-Set these in Elementor Site Settings → Global Colors:
-
-1. **Primary:** #0A2540
-2. **Secondary:** #1E3A5F
-3. **Accent:** #C9A227
-4. **Text Dark:** #1A1A1A
-5. **Text Medium:** #4A5568
-6. **Text Light:** #718096
-7. **Background Light:** #F7F9FC
-8. **Border:** #E2E8F0
-
----
-
-## Performance Optimization
-
-### 1. Asset Loading
-- Load CSS in `<head>`
-- Load JS before `</body>`
-- Enable Elementor's Asset Unification
-
-### 2. Caching
-- Enable Elementor's Minify CSS/JS
-- Use caching plugin (WP Rocket, W3 Total Cache)
-
-### 3. Images
-- Optimize logo SVG/PNG
-- Use WebP format where possible
-
----
-
-## Accessibility Checklist
-
-✅ Semantic HTML structure  
-✅ ARIA labels on buttons  
-✅ Keyboard navigation support  
-✅ Focus states defined  
-✅ Color contrast WCAG AA compliant  
-✅ Screen reader friendly  
-
----
-
-## Testing Checklist
-
-### Desktop
-- [ ] Sticky header activates on scroll
-- [ ] Mega menu opens on hover
-- [ ] All links functional
-- [ ] Search trigger clickable
-- [ ] Request Quote button works
-
-### Tablet
-- [ ] Layout adapts properly
-- [ ] Mega menu displays correctly
-- [ ] Touch interactions work
-
-### Mobile
-- [ ] Hamburger menu toggles
-- [ ] Off-canvas slides in/out
-- [ ] Submenus accordion properly
-- [ ] Close button functional
-- [ ] Overlay closes menu
+1. **ARIA Labels**: All social icons include `aria-label` attributes
+2. **Focus States**: Keyboard navigation supported with visible focus rings
+3. **Color Contrast**: WCAG AA compliant text-to-background ratios
+4. **Semantic Markup**: Proper use of `<footer>`, `<h4>`, `<ul>`, `<li>`, `<a>` tags
+5. **Screen Reader**: Logical reading order maintained across breakpoints
 
 ---
 
 ## Common Issues & Solutions
 
-### Issue: Mega Menu Not Showing
-**Solution:** Check z-index hierarchy. Ensure mega-menu z-index (1001) is higher than header (1000).
+### Issue: Footer not full width
+**Solution:** Check parent section settings → Layout → Content Width → Set to "Full Width"
 
-### Issue: Sticky Header Jitter
-**Solution:** Add `will-change: transform;` to header CSS.
+### Issue: Grid columns not aligning
+**Solution:** Verify container has `display: grid` and proper `grid-template-columns` applied
 
-### Issue: Mobile Menu Overlap
-**Solution:** Verify body overflow is set to hidden when menu is open.
+### Issue: Hover animations not working
+**Solution:** Ensure CSS file is loaded after any theme stylesheets (check cascade order)
 
-### Issue: Font Not Loading
-**Solution:** Import 'Inter' font in Elementor Site Settings → Custom Fonts or use Google Fonts integration.
-
----
-
-## Export/Import Template
-
-### Save as Elementor Template:
-1. Right-click on header container
-2. Save as Template
-3. Name: "Enterprise Header"
-4. Access via: Templates → Saved Templates
-
-### Import to Another Site:
-1. Export template as JSON
-2. Import via Elementor Template Library
-3. Reapply global colors if needed
+### Issue: Mobile layout broken
+**Solution:** Clear Elementor cache → Tools → Regenerate CSS & Data
 
 ---
 
-## Support & Maintenance
+## Browser Support Matrix
+
+| Browser | Version | Status |
+|---------|---------|--------|
+| Chrome | 90+ | ✅ Full Support |
+| Firefox | 88+ | ✅ Full Support |
+| Safari | 14+ | ✅ Full Support |
+| Edge | 90+ | ✅ Full Support |
+| Opera | 76+ | ✅ Full Support |
+
+---
+
+## Export Instructions
+
+To save this footer as an Elementor Template:
+
+1. Right-click the section handle (six dots)
+2. Select "Save as Template"
+3. Name: `GCCMEP Enterprise Footer`
+4. Insert into any page via Template Library
+
+---
 
 **Version:** 1.0  
-**Last Updated:** Current  
-**Compatibility:** Elementor Pro 3.15+  
-**WordPress:** 6.0+  
-
-For updates or modifications, maintain the CSS variable structure to ensure easy theming and consistency across the platform.
-
----
-
-## Quick Start Guide
-
-1. **Create Header Template:**
-   - Templates → Theme Builder → Header → Add New
-   
-2. **Build Structure:**
-   - Add containers as mapped above
-   - Apply CSS classes
-   
-3. **Add Custom CSS:**
-   - Copy header.css to Site Settings
-   
-4. **Add JavaScript:**
-   - Copy script.js to Site Settings → Custom Code
-   
-5. **Set Display Conditions:**
-   - Include: Entire Site
-   
-6. **Publish & Test:**
-   - Preview on all devices
-   - Verify all interactions
-
----
-
-**End of Integration Notes**
+**Last Updated:** 2026  
+**Component ID:** GCCMEP-FOOTER-001
