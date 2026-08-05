@@ -1,5 +1,43 @@
-(header.elementor.json is a JSON config file, not a build artifact or temporary file, so no ignores are needed)
+```
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.env
 
-```json
+# Logs
+*.log
 
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Coverage reports
+.coverage
+htmlcov/
+.coverage.*
+.coverage.xml
+coverage.xml
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS generated files
+.DS_Store
+Thumbs.db
 ```

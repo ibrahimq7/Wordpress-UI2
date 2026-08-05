@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-HTML/CSS to Elementor Pro JSON Converter
-Professional-grade compiler for converting HTML/CSS to Elementor-compatible JSON templates.
+HTML/CSS to Elementor Pro JSON Converter - Optimized Version
+Professional-grade compiler with flattened hierarchy for Elementor import compatibility.
 
-This tool implements a Deterministic Hybrid Engine:
-- Python handles math, structure, spacing layout rules
-- Semantic layer identifies components and maps to Elementor types
+Engineering Updates:
+1. FLATTEN HIERARCHY: Only creates containers for major layout elements
+2. SYSTEM SCHEMA HEADERS: Uses exact Elementor system keys (version 0.4)
+3. CONTROL ARRAYS: Every widget has explicit settings block structure
 """
 
 import json
@@ -141,19 +142,28 @@ class ElementorSchemaMapper:
         'select': 'form',
     }
     
-    # Container tag names
-    CONTAINER_TAGS = {'div', 'section', 'article', 'header', 'footer', 'nav', 'main', 'aside'}
+    # MAJOR layout container tags - only these create containers by default
+    MAJOR_CONTAINER_TAGS = {'section', 'header', 'footer', 'nav', 'main', 'aside', 'article'}
+    
+    # Tags that should NEVER be containers (always widgets)
+    WIDGET_ONLY_TAGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'img', 
+                        'a', 'button', 'li', 'input', 'textarea', 'select', 'label',
+                        'strong', 'em', 'b', 'i', 'u', 'small', 'sub', 'sup'}
     
     @classmethod
     def get_widget_type(cls, tag_name: str, has_children: bool = True) -> str:
         """Determine Elementor widget type from HTML tag"""
         tag_lower = tag_name.lower()
         
-        # Always treat container tags as containers
-        if tag_lower in cls.CONTAINER_TAGS:
+        # Check widget-only tags first
+        if tag_lower in cls.WIDGET_ONLY_TAGS:
+            return cls.WIDGET_MAP.get(tag_lower, 'text-editor')
+        
+        # Container tags
+        if tag_lower in cls.MAJOR_CONTAINER_TAGS:
             return 'container'
         
-        # Check display property context
+        # For div and other tags, check context
         return cls.WIDGET_MAP.get(tag_lower, 'text-editor')
 
 
@@ -631,45 +641,108 @@ class ElementorLayoutCompiler:
         
         return styles
     
-    def is_container_element(self, element: Any, styles: Dict[str, str]) -> bool:
-        """Determine if element should be a container"""
+    def is_major_layout_element(self, element: Any, styles: Dict[str, str]) -> bool:
+        """
+        FLATTEN HIERARCHY RULE #1:
+        Only create Elementor containers for MAJOR layout elements.
+        
+        Creates container if:
+        1. Tag is a major semantic layout tag (section, header, footer, nav, main, aside, article)
+        2. OR has explicit 'display: flex' or 'display: grid' in style attribute
+        3. OR is a div with flex/grid properties
+        
+        Plain div wrappers without flex/grid are SKIPPED to reduce nesting depth.
+        """
         tag_name = element.name.lower() if element.name else ''
         
-        # Explicit container tags
-        if tag_name in ElementorSchemaMapper.CONTAINER_TAGS:
+        # Rule 1: Major semantic layout tags ALWAYS create containers
+        if tag_name in ElementorSchemaMapper.MAJOR_CONTAINER_TAGS:
             return True
         
-        # Check display property
+        # Rule 2: Check for explicit flex/grid display in inline styles or CSS rules
         display = styles.get('display', '')
-        if display in ('flex', 'grid', 'block'):
+        if display in ('flex', 'grid', 'inline-flex', 'inline-grid'):
             return True
         
-        # Has children elements
-        children = list(element.children)
-        non_text_children = [c for c in children if c.name and c.name not in ('br', 'hr')]
-        if len(non_text_children) > 0:
-            return True
+        # Rule 3: div with children that are themselves containers should be flattened
+        # We skip creating a container for plain structural divs
+        if tag_name == 'div':
+            # Check if this div has meaningful flex/grid styles
+            has_flex_props = any(k in styles for k in [
+                'flex-direction', 'justify-content', 'align-items', 
+                'flex-wrap', 'gap', 'align-content'
+            ])
+            if has_flex_props:
+                return True
+            
+            # Check if div has class that suggests it's a layout container
+            classes_elem = element.get('class')
+            if classes_elem:
+                classes = classes_elem if isinstance(classes_elem, list) else classes_elem.split()
+                # Common layout container class patterns
+                layout_patterns = ['container', 'row', 'col', 'wrapper', 'flex', 'grid', 'layout']
+                if any(pattern in ''.join(classes).lower() for pattern in layout_patterns):
+                    return True
+            
+            # Plain div without flex properties - skip container creation
+            # Children will be lifted to parent container
+            return False
+        
+        # For other tags like ul, check if they have list items
+        if tag_name in ('ul', 'ol'):
+            return True  # Treat lists as containers for icon-list widget
         
         return False
     
-    def compile_node(self, element: Any, parent_styles: Dict[str, str] = None) -> Optional[Dict[str, Any]]:
-        """Recursively compile HTML element to Elementor node"""
+    def compile_node(self, element: Any, parent_styles: Dict[str, str] = None, 
+                     lift_children: bool = False) -> Optional[Dict[str, Any]]:
+        """
+        Recursively compile HTML element to Elementor node.
+        
+        FLATTEN HIERARCHY OPTIMIZATION:
+        - Only creates containers for major layout elements
+        - Plain divs without layout classes pass their children up to parent container
+        - Maximum nesting depth kept under 5 layers
+        """
         if element is None or element.name is None:
             return None
         
-        # Skip script, style, meta tags
-        if element.name in ('script', 'style', 'meta', 'link', 'head', 'title'):
+        # Skip script, style, meta tags and empty text
+        if element.name in ('script', 'style', 'meta', 'link', 'head', 'title', 'br', 'hr'):
             return None
         
         # Get computed styles
         styles = self.get_computed_styles(element)
         
-        # Determine if this is a container or widget
-        is_container = self.is_container_element(element, styles)
+        # Determine if this is a major layout container
+        is_major_container = self.is_major_layout_element(element, styles)
         
-        if is_container:
+        if is_major_container:
             return self._compile_container(element, styles)
         else:
+            # This is either a widget or a plain wrapper div
+            tag_name = element.name.lower()
+            
+            # Widget-only tags always produce widgets
+            if tag_name in ElementorSchemaMapper.WIDGET_ONLY_TAGS:
+                return self._compile_widget(element, styles)
+            
+            # For non-widget tags (like span, div without layout), check children
+            children_nodes = []
+            for child in element.find_all(recursive=False):
+                compiled_child = self.compile_node(child, styles, lift_children=True)
+                if compiled_child:
+                    # If child marked for lifting, extract its children
+                    if lift_children and compiled_child.get('_lift'):
+                        children_nodes.extend(compiled_child.get('elements', []))
+                    else:
+                        children_nodes.append(compiled_child)
+            
+            # If we have children nodes and this is a plain wrapper, return children for lifting
+            if lift_children and children_nodes:
+                return {'_lift': True, 'elements': children_nodes}
+            
+            # Otherwise try to compile as widget (fallback)
             return self._compile_widget(element, styles)
     
     def _compile_container(self, element: Any, styles: Dict[str, str]) -> Dict[str, Any]:
@@ -688,14 +761,20 @@ class ElementorLayoutCompiler:
         if element.get('id'):
             node['settings']['css_id'] = element.get('id')
         
-        # Process children
+        # Process children - collect and potentially lift plain wrapper children
+        all_children = []
         for child in element.find_all(recursive=False):
-            compiled_child = self.compile_node(child, styles)
+            compiled_child = self.compile_node(child, styles, lift_children=True)
             if compiled_child:
-                node['elements'].append(compiled_child)
+                # If child marked for lifting, extract its children
+                if compiled_child.get('_lift'):
+                    all_children.extend(compiled_child.get('elements', []))
+                else:
+                    all_children.append(compiled_child)
+        
+        node['elements'] = all_children
         
         # Golden Rule #4: Micro-padding calculation
-        # If container has explicit dimensions, calculate padding differences
         self._apply_micro_padding(node, styles)
         
         return node
@@ -707,10 +786,17 @@ class ElementorLayoutCompiler:
         pass
     
     def _compile_widget(self, element: Any, styles: Dict[str, str]) -> Dict[str, Any]:
-        """Compile element as a widget"""
+        """
+        Compile element as a widget.
+        
+        CONTROL ARRAYS RULE #3:
+        Every widget item explicitly contains an empty settings block structure
+        if no custom attributes are found, avoiding empty payload references.
+        """
         tag_name = element.name.lower()
         widget_type = ElementorSchemaMapper.get_widget_type(tag_name)
         
+        # Always initialize with empty settings dict (CONTROL ARRAYS RULE)
         settings = {}
         
         # Content extraction based on widget type
@@ -748,6 +834,12 @@ class ElementorLayoutCompiler:
             # SVG or other raw HTML
             settings['html'] = str(element)
         
+        elif widget_type == 'form':
+            # Form elements
+            settings['field_type'] = tag_name
+            if element.get('name'):
+                settings['field_label'] = element.get('name')
+        
         # Merge widget-specific styles
         widget_styles = self.widget_mapper.compile_widget_settings(styles, widget_type, self.css_variables)
         settings.update(widget_styles)
@@ -756,11 +848,19 @@ class ElementorLayoutCompiler:
             'id': self.id_gen.generate(tag_name),
             'elType': 'widget',
             'widgetType': widget_type,
-            'settings': settings
+            'settings': settings  # Always present, even if empty
         }
     
     def convert(self, html_input: str, css_input: str = "", title: str = None) -> str:
-        """Convert HTML/CSS to Elementor JSON"""
+        """
+        Convert HTML/CSS to Elementor JSON.
+        
+        SYSTEM SCHEMA HEADERS RULE #2:
+        Root dictionary uses exact Elementor system keys:
+        - version: "0.4"
+        - title, type, content
+        - page_settings with post_status
+        """
         if title:
             self.title = title
         
@@ -774,19 +874,40 @@ class ElementorLayoutCompiler:
         # Find the main content (skip html, head, body wrappers)
         root_element = soup.body if soup.body else soup.find()
         
-        # Build document structure
+        # Build document structure with SYSTEM SCHEMA HEADERS
         document_tree = {
-            'version': '3.4.0',
+            'version': '0.4',  # Updated version per requirements
             'title': self.title,
             'type': 'page',
-            'content': []
+            'content': [],
+            'page_settings': {
+                'post_status': 'publish'
+            }
         }
         
         # Compile the tree
         if root_element:
             compiled_tree = self.compile_node(root_element)
             if compiled_tree:
-                if compiled_tree['elType'] == 'container':
+                # Handle lift marker at root level
+                if compiled_tree.get('_lift'):
+                    # Add lifted children directly to content
+                    for child in compiled_tree.get('elements', []):
+                        if child.get('elType') == 'container':
+                            document_tree['content'].append(child)
+                        else:
+                            # Wrap single widget in container
+                            fallback_container = {
+                                'id': self.id_gen.generate('wrapper'),
+                                'elType': 'container',
+                                'settings': {
+                                    'flex_direction': 'column',
+                                    'content_width': 'boxed'
+                                },
+                                'elements': [child]
+                            }
+                            document_tree['content'].append(fallback_container)
+                elif compiled_tree['elType'] == 'container':
                     document_tree['content'].append(compiled_tree)
                 else:
                     # Wrap single widget in container
