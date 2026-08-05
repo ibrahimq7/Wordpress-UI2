@@ -641,33 +641,49 @@ class ElementorLayoutCompiler:
         
         return styles
     
-    def is_major_layout_element(self, element: Any, styles: Dict[str, str]) -> bool:
+    def should_create_container(self, element: Any, styles: Dict[str, str]) -> bool:
         """
-        FLATTEN HIERARCHY RULE #1:
-        Only create Elementor containers for MAJOR layout elements.
+        STRUCTURAL BOUNDARIES RULES:
         
-        Creates container if:
-        1. Tag is a major semantic layout tag (section, header, footer, nav, main, aside, article)
-        2. OR has explicit 'display: flex' or 'display: grid' in style attribute
-        3. OR is a div with flex/grid properties
+        Rule 1 - PROTECT MULTI-CHILD WRAPPERS:
+        If an HTML element has MORE than one child element, DO NOT strip it.
+        It must remain a native Elementor 'container' to keep its children separated.
         
-        Plain div wrappers without flex/grid are SKIPPED to reduce nesting depth.
+        Rule 2 - STRUCTURAL TAG INCLUSION:
+        Explicitly treat the following tags as structural boundaries that must ALWAYS
+        become an Elementor container, regardless of inline flex styles:
+        <header>, <footer>, <nav>, <section>, <form>, and <ul>.
+        
+        Rule 3 - CONCATENATION PREVENTION:
+        Never combine text nodes from different HTML structural tags into a single widget string.
+        Each block element (<h6>, <h5>, <h4>, <h3>, <h2>, <h1>, <p>, <li>, <a>) must generate
+        its own distinct Elementor widget payload block.
         """
         tag_name = element.name.lower() if element.name else ''
         
-        # Rule 1: Major semantic layout tags ALWAYS create containers
-        if tag_name in ElementorSchemaMapper.MAJOR_CONTAINER_TAGS:
+        # Rule 2: STRUCTURAL TAG INCLUSION - These tags ALWAYS create containers
+        structural_tags = {'header', 'footer', 'nav', 'section', 'form', 'ul', 'ol'}
+        if tag_name in structural_tags:
             return True
         
-        # Rule 2: Check for explicit flex/grid display in inline styles or CSS rules
-        display = styles.get('display', '')
-        if display in ('flex', 'grid', 'inline-flex', 'inline-grid'):
-            return True
-        
-        # Rule 3: div with children that are themselves containers should be flattened
-        # We skip creating a container for plain structural divs
-        if tag_name == 'div':
-            # Check if this div has meaningful flex/grid styles
+        # Also include other major semantic layout tags
+        major_layout_tags = {'main', 'aside', 'article', 'div'}
+        if tag_name in major_layout_tags:
+            # Rule 1: PROTECT MULTI-CHILD WRAPPERS
+            # Count direct element children (not text nodes)
+            direct_children = [child for child in element.children 
+                             if hasattr(child, 'name') and child.name is not None]
+            
+            if len(direct_children) > 1:
+                # Multiple children - MUST create container to keep them separated
+                return True
+            
+            # Single child or no children - check for flex/grid properties
+            display = styles.get('display', '')
+            if display in ('flex', 'grid', 'inline-flex', 'inline-grid'):
+                return True
+            
+            # Check for flexbox-related properties
             has_flex_props = any(k in styles for k in [
                 'flex-direction', 'justify-content', 'align-items', 
                 'flex-wrap', 'gap', 'align-content'
@@ -679,18 +695,20 @@ class ElementorLayoutCompiler:
             classes_elem = element.get('class')
             if classes_elem:
                 classes = classes_elem if isinstance(classes_elem, list) else classes_elem.split()
-                # Common layout container class patterns
                 layout_patterns = ['container', 'row', 'col', 'wrapper', 'flex', 'grid', 'layout']
                 if any(pattern in ''.join(classes).lower() for pattern in layout_patterns):
                     return True
             
-            # Plain div without flex properties - skip container creation
-            # Children will be lifted to parent container
+            # Plain div without multiple children or flex properties - skip container
             return False
         
-        # For other tags like ul, check if they have list items
+        # For ul/ol already handled above, but ensure li items are processed correctly
         if tag_name in ('ul', 'ol'):
-            return True  # Treat lists as containers for icon-list widget
+            return True
+        
+        # Other tags like section, header etc already covered in structural_tags
+        if tag_name in ElementorSchemaMapper.MAJOR_CONTAINER_TAGS:
+            return True
         
         return False
     
@@ -699,10 +717,10 @@ class ElementorLayoutCompiler:
         """
         Recursively compile HTML element to Elementor node.
         
-        FLATTEN HIERARCHY OPTIMIZATION:
-        - Only creates containers for major layout elements
+        STRUCTURAL BOUNDARIES OPTIMIZATION:
+        - Only creates containers for structural tags and multi-child wrappers
         - Plain divs without layout classes pass their children up to parent container
-        - Maximum nesting depth kept under 5 layers
+        - Each block element generates its own distinct widget (no concatenation)
         """
         if element is None or element.name is None:
             return None
@@ -714,10 +732,10 @@ class ElementorLayoutCompiler:
         # Get computed styles
         styles = self.get_computed_styles(element)
         
-        # Determine if this is a major layout container
-        is_major_container = self.is_major_layout_element(element, styles)
+        # Determine if this should be a container based on structural boundary rules
+        should_be_container = self.should_create_container(element, styles)
         
-        if is_major_container:
+        if should_be_container:
             return self._compile_container(element, styles)
         else:
             # This is either a widget or a plain wrapper div
@@ -885,42 +903,55 @@ class ElementorLayoutCompiler:
             }
         }
         
-        # Compile the tree
+        # Compile the tree - process each direct structural child of body/root separately
         if root_element:
-            compiled_tree = self.compile_node(root_element)
-            if compiled_tree:
-                # Handle lift marker at root level
-                if compiled_tree.get('_lift'):
-                    # Add lifted children directly to content
-                    for child in compiled_tree.get('elements', []):
-                        if child.get('elType') == 'container':
-                            document_tree['content'].append(child)
+            # Skip html/body wrapper tags and find all top-level structural elements
+            if root_element.name in ('html', 'body'):
+                # Find all direct structural children (header, section, footer, nav, main, etc.)
+                direct_children = [child for child in root_element.children 
+                                 if hasattr(child, 'name') and child.name is not None
+                                 and child.name not in ('head', 'script', 'style', 'meta', 'link')]
+            else:
+                # Root is a content element - check if it has multiple structural siblings
+                # by looking at parent's children
+                parent = root_element.parent
+                if parent and parent.name in ('html', 'body'):
+                    direct_children = [child for child in parent.children 
+                                     if hasattr(child, 'name') and child.name is not None
+                                     and child.name not in ('head', 'script', 'style', 'meta', 'link')]
+                else:
+                    # Single root element
+                    direct_children = [root_element]
+            
+            if not direct_children:
+                document_tree['content'] = []
+            else:
+                # Process each direct child separately to preserve structure
+                for child in direct_children:
+                    compiled_child = self.compile_node(child)
+                    if compiled_child:
+                        if compiled_child.get('_lift'):
+                            for lifted in compiled_child.get('elements', []):
+                                if lifted.get('elType') == 'container':
+                                    document_tree['content'].append(lifted)
+                                else:
+                                    fallback_container = {
+                                        'id': self.id_gen.generate('wrapper'),
+                                        'elType': 'container',
+                                        'settings': {'flex_direction': 'column', 'content_width': 'boxed'},
+                                        'elements': [lifted]
+                                    }
+                                    document_tree['content'].append(fallback_container)
+                        elif compiled_child['elType'] == 'container':
+                            document_tree['content'].append(compiled_child)
                         else:
-                            # Wrap single widget in container
                             fallback_container = {
                                 'id': self.id_gen.generate('wrapper'),
                                 'elType': 'container',
-                                'settings': {
-                                    'flex_direction': 'column',
-                                    'content_width': 'boxed'
-                                },
-                                'elements': [child]
+                                'settings': {'flex_direction': 'column', 'content_width': 'boxed'},
+                                'elements': [compiled_child]
                             }
                             document_tree['content'].append(fallback_container)
-                elif compiled_tree['elType'] == 'container':
-                    document_tree['content'].append(compiled_tree)
-                else:
-                    # Wrap single widget in container
-                    fallback_container = {
-                        'id': self.id_gen.generate('wrapper'),
-                        'elType': 'container',
-                        'settings': {
-                            'flex_direction': 'column',
-                            'content_width': 'boxed'
-                        },
-                        'elements': [compiled_tree]
-                    }
-                    document_tree['content'].append(fallback_container)
         
         return json.dumps(document_tree, indent=2)
     
