@@ -1,25 +1,5 @@
-```
-# Compiled Python files
-*.pyc
-__pycache__/
+(header.elementor.json is a JSON config file, not a build artifact or temporary file, so no ignores are needed)
 
-# Environment files
-.env
-.env.local
-*.env.*
+```json
 
-# Logs
-*.log
-
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# Dependencies
-node_modules/
-venv/
-.venv/
 ```
