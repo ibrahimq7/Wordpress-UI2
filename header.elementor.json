@@ -1,0 +1,28 @@
+{
+  "version": "0.4",
+  "title": "Header",
+  "type": "page",
+  "content": [
+    {
+      "id": "01afb24",
+      "elType": "container",
+      "settings": {
+        "flex_direction": "column",
+        "content_width": "boxed"
+      },
+      "elements": [
+        {
+          "id": "fbdf4ad",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "info@mep-procurement.com+971 50 123 4567Serving UAE \u2022 Saudi Arabia \u2022 Qatar \u2022 Kuwait \u2022 Bahrain \u2022 OmanMon-Fri: 8:00 AM - 6:00 PM GSTMEPPROCUREProductsCategoriesPlumbingHVACFire FightingCategoriesElectricalGas SystemsPumpsCategoriesWater TreatmentToolsFeatured BrandsBrand ABrand BBrand CNeed Help Finding Products?Our experts are here to assist you with your procurement needs.Request a QuoteBrandsRFQ CenterAboutContactRequest QuoteMEPPROCUREProductsPlumbingHVACFire FightingElectricalGas SystemsPumpsWater TreatmentToolsBrandsRFQ CenterAboutContactinfo@mep-procurement.com+971 50 123 4567Request Quote"
+          }
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "post_status": "publish"
+  }
+}

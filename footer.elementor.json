@@ -1,0 +1,1563 @@
+{
+  "version": "3.4.0",
+  "title": "Footer",
+  "type": "page",
+  "content": [
+    {
+      "id": "270fc36",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_wrap": "nowrap",
+        "justify_content": "center",
+        "align_items": "center",
+        "css_classes": [
+          "enterprise-footer"
+        ]
+      },
+      "elements": [
+        {
+          "id": "3937234",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_wrap": "nowrap",
+            "justify_content": "center",
+            "align_items": "center",
+            "css_classes": [
+              "footer-top-divider"
+            ]
+          },
+          "elements": []
+        },
+        {
+          "id": "4280465",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_wrap": "nowrap",
+            "justify_content": "center",
+            "align_items": "center",
+            "css_classes": [
+              "footer-main"
+            ]
+          },
+          "elements": [
+            {
+              "id": "5b9a15b",
+              "elType": "container",
+              "settings": {
+                "content_width": "boxed",
+                "flex_direction": "column",
+                "flex_wrap": "nowrap",
+                "justify_content": "center",
+                "align_items": "center",
+                "padding": {
+                  "top": 0.0,
+                  "right": 12.0,
+                  "bottom": 0.0,
+                  "left": 12.0,
+                  "unit": "px",
+                  "isLinked": false
+                },
+                "css_classes": [
+                  "footer-container"
+                ]
+              },
+              "elements": [
+                {
+                  "id": "d32370a",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-column",
+                      "footer-col-company"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "2e5bc54",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-logo-wrapper"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "c1f4443",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "footer-logo"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "e1687b0",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "bbe0486",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<rect fill=\"#C9A55C\" height=\"45\" rx=\"6\" width=\"45\"></rect>"
+                                  }
+                                },
+                                {
+                                  "id": "3847c06",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<path d=\"M22.5 10L36 22.5L22.5 35L9 22.5L22.5 10Z\" fill=\"none\" stroke=\"#0A2540\" stroke-width=\"2.5\"></path>"
+                                  }
+                                },
+                                {
+                                  "id": "e5839b3",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<circle cx=\"22.5\" cy=\"22.5\" fill=\"#0A2540\" r=\"5\"></circle>"
+                                  }
+                                },
+                                {
+                                  "id": "720de9f",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "MEP PRO"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "94cc393",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "Your trusted GCC MEP procurement partner. Delivering premium mechanical, electrical, and plumbing solutions across the Middle East with excellence and reliability.",
+                        "typography_typography": "custom",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13.0,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "",
+                          "size": 1.7,
+                          "sizes": []
+                        }
+                      }
+                    },
+                    {
+                      "id": "11eba78",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-social"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "7cb6eb7",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "social-icon"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "4457f00",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "324e87e",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\"></path>"
+                                  }
+                                },
+                                {
+                                  "id": "61d8346",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<rect height=\"12\" width=\"4\" x=\"2\" y=\"9\"></rect>"
+                                  }
+                                },
+                                {
+                                  "id": "ea60378",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<circle cx=\"4\" cy=\"4\" r=\"2\"></circle>"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "84e1c4a",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "social-icon"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "8b99f7f",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "0869521",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"></path>"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "4054d64",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "social-icon"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "d292eb3",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "7d2b439",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path>"
+                                  }
+                                },
+                                {
+                                  "id": "1cf5f22",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<polyline points=\"22,6 12,13 2,6\"></polyline>"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "3f873fc",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-column",
+                      "footer-col-products"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "b9f0f3c",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Products",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 15.0,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "px",
+                          "size": 19.5,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 0.6,
+                          "sizes": []
+                        }
+                      }
+                    },
+                    {
+                      "id": "57d2388",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-links"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "971629b",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "1b5588f",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Plumbing Systems",
+                                "link": {
+                                  "url": "/products/plumbing",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "99122e5",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "528d53e",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "HVAC Solutions",
+                                "link": {
+                                  "url": "/products/hvac",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "55f2ddb",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "93ca006",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Fire Fighting",
+                                "link": {
+                                  "url": "/products/fire-fighting",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "514d957",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "0ce1e6c",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Electrical Systems",
+                                "link": {
+                                  "url": "/products/electrical",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "60b1659",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "72d963f",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Gas Systems",
+                                "link": {
+                                  "url": "/products/gas-systems",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "a135ab8",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-column",
+                      "footer-col-company-nav"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "61eff77",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Company",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 15.0,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "px",
+                          "size": 19.5,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 0.6,
+                          "sizes": []
+                        }
+                      }
+                    },
+                    {
+                      "id": "2f49bbb",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-links"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "cedf97f",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "94f0ec0",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "About Us",
+                                "link": {
+                                  "url": "/about",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "849ef19",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "2a3c184",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Our Brands",
+                                "link": {
+                                  "url": "/brands",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "93469cf",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "5987f63",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "RFQ Center",
+                                "link": {
+                                  "url": "/rfq-center",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "e890d16",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "d5bdabc",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Insights & Blog",
+                                "link": {
+                                  "url": "/blog",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "4286c78",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "b92ba37",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Contact Us",
+                                "link": {
+                                  "url": "/contact",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "dfadaf1",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-column",
+                      "footer-col-industries"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "8d7090e",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Industries",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 15.0,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "px",
+                          "size": 19.5,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 0.6,
+                          "sizes": []
+                        }
+                      }
+                    },
+                    {
+                      "id": "aafb36b",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-links"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "34851d2",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "4289bde",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Construction",
+                                "link": {
+                                  "url": "/industries/construction",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "6c7b75c",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "530e893",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Oil & Gas",
+                                "link": {
+                                  "url": "/industries/oil-gas",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "d97df32",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "38a139c",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Commercial Buildings",
+                                "link": {
+                                  "url": "/industries/commercial-buildings",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "bb02920",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "cf5342b",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Infrastructure",
+                                "link": {
+                                  "url": "/industries/infrastructure",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "f157994",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center"
+                          },
+                          "elements": [
+                            {
+                              "id": "75659d3",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "Water Treatment",
+                                "link": {
+                                  "url": "/industries/water-treatment",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "26c324f",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-column",
+                      "footer-col-contact"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "ae1934b",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Get in Touch",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 15.0,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "px",
+                          "size": 19.5,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 0.6,
+                          "sizes": []
+                        }
+                      }
+                    },
+                    {
+                      "id": "a01a957",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-contact-info"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "4d6397b",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "contact-item"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "4cc0288",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center",
+                                "width": {
+                                  "unit": "px",
+                                  "size": 36.0,
+                                  "sizes": []
+                                },
+                                "css_classes": [
+                                  "contact-icon"
+                                ]
+                              },
+                              "elements": [
+                                {
+                                  "id": "2040acc",
+                                  "elType": "container",
+                                  "settings": {
+                                    "content_width": "boxed",
+                                    "flex_direction": "column",
+                                    "flex_wrap": "nowrap",
+                                    "justify_content": "center",
+                                    "align_items": "center"
+                                  },
+                                  "elements": [
+                                    {
+                                      "id": "87fcf51",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path>"
+                                      }
+                                    },
+                                    {
+                                      "id": "f3ea129",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<polyline points=\"22,6 12,13 2,6\"></polyline>"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "12f55f2",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "info@company.com",
+                                "link": {
+                                  "url": "mailto:info@company.com",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8facb9f",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "contact-item"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "e71316f",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center",
+                                "width": {
+                                  "unit": "px",
+                                  "size": 36.0,
+                                  "sizes": []
+                                },
+                                "css_classes": [
+                                  "contact-icon"
+                                ]
+                              },
+                              "elements": [
+                                {
+                                  "id": "8c41c9b",
+                                  "elType": "container",
+                                  "settings": {
+                                    "content_width": "boxed",
+                                    "flex_direction": "column",
+                                    "flex_wrap": "nowrap",
+                                    "justify_content": "center",
+                                    "align_items": "center"
+                                  },
+                                  "elements": [
+                                    {
+                                      "id": "66eef0f",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "ea4f339",
+                              "elType": "widget",
+                              "widgetType": "button",
+                              "settings": {
+                                "text": "+971 4 123 4567",
+                                "link": {
+                                  "url": "tel:+97141234567",
+                                  "is_external": false
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "7804217",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "css_classes": [
+                              "contact-item",
+                              "contact-item-hours"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "9190ef4",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center",
+                                "width": {
+                                  "unit": "px",
+                                  "size": 36.0,
+                                  "sizes": []
+                                },
+                                "css_classes": [
+                                  "contact-icon"
+                                ]
+                              },
+                              "elements": [
+                                {
+                                  "id": "32438c1",
+                                  "elType": "container",
+                                  "settings": {
+                                    "content_width": "boxed",
+                                    "flex_direction": "column",
+                                    "flex_wrap": "nowrap",
+                                    "justify_content": "center",
+                                    "align_items": "center"
+                                  },
+                                  "elements": [
+                                    {
+                                      "id": "e5b0175",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<circle cx=\"12\" cy=\"12\" r=\"10\"></circle>"
+                                      }
+                                    },
+                                    {
+                                      "id": "32969ec",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<polyline points=\"12 6 12 12 16 14\"></polyline>"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "020c515",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "Sun - Thu: 8:00 AM - 6:00 PM GST"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "55b456d",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "boxed",
+                        "flex_direction": "column",
+                        "flex_wrap": "nowrap",
+                        "justify_content": "center",
+                        "align_items": "center",
+                        "css_classes": [
+                          "footer-serving"
+                        ]
+                      },
+                      "elements": [
+                        {
+                          "id": "2f487e2",
+                          "elType": "widget",
+                          "widgetType": "text-editor",
+                          "settings": {
+                            "editor": "Serving the GCC Region",
+                            "text_color": "rgba(255, 255, 255, 0.5)",
+                            "typography_typography": "custom",
+                            "typography_font_size": {
+                              "unit": "px",
+                              "size": 12.0,
+                              "sizes": []
+                            },
+                            "typography_line_height": {
+                              "unit": "px",
+                              "size": 15.600000000000001,
+                              "sizes": []
+                            },
+                            "typography_font_weight": "700",
+                            "title_color": "rgba(255, 255, 255, 0.5)",
+                            "typography_letter_spacing": {
+                              "unit": "px",
+                              "size": 1.2,
+                              "sizes": []
+                            }
+                          }
+                        },
+                        {
+                          "id": "100ca9a",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "boxed",
+                            "flex_direction": "column",
+                            "flex_wrap": "nowrap",
+                            "justify_content": "center",
+                            "align_items": "center",
+                            "gap": {
+                              "column": 6.0,
+                              "row": 6.0
+                            },
+                            "css_classes": [
+                              "serving-countries"
+                            ]
+                          },
+                          "elements": [
+                            {
+                              "id": "4a7041f",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "0a34b4c",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\udde6\ud83c\uddea",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "5ddfe95",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "5b123ac",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\uddf8\ud83c\udde6",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "d0f317e",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "cc63601",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\uddf6\ud83c\udde6",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "f2b5552",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "89c0661",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\uddf0\ud83c\uddfc",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "834001a",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "41ba6c8",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\udde7\ud83c\udded",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "a9847ab",
+                              "elType": "container",
+                              "settings": {
+                                "content_width": "boxed",
+                                "flex_direction": "column",
+                                "flex_wrap": "nowrap",
+                                "justify_content": "center",
+                                "align_items": "center"
+                              },
+                              "elements": [
+                                {
+                                  "id": "5a6a91e",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "\ud83c\uddf4\ud83c\uddf2",
+                                    "typography_typography": "custom",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 14.0,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "px",
+                                      "size": 18.2,
+                                      "sizes": []
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "969b661",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_wrap": "nowrap",
+            "justify_content": "center",
+            "align_items": "center",
+            "css_classes": [
+              "footer-bottom"
+            ]
+          },
+          "elements": [
+            {
+              "id": "a420b99",
+              "elType": "container",
+              "settings": {
+                "content_width": "boxed",
+                "flex_direction": "column",
+                "flex_wrap": "nowrap",
+                "justify_content": "center",
+                "align_items": "center",
+                "padding": {
+                  "top": 0.0,
+                  "right": 12.0,
+                  "bottom": 0.0,
+                  "left": 12.0,
+                  "unit": "px",
+                  "isLinked": false
+                },
+                "css_classes": [
+                  "footer-container"
+                ]
+              },
+              "elements": [
+                {
+                  "id": "b1db8bb",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "css_classes": [
+                      "footer-copyright"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "e925162",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "\u00a9 2026 MEP PRO. All Rights Reserved."
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "73ae0ad",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "boxed",
+                    "flex_direction": "column",
+                    "flex_wrap": "nowrap",
+                    "justify_content": "center",
+                    "align_items": "center",
+                    "gap": {
+                      "column": 12.0,
+                      "row": 12.0
+                    },
+                    "css_classes": [
+                      "footer-legal"
+                    ]
+                  },
+                  "elements": [
+                    {
+                      "id": "2d7c33c",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Privacy Policy",
+                        "link": {
+                          "url": "/privacy-policy",
+                          "is_external": false
+                        }
+                      }
+                    },
+                    {
+                      "id": "b211ba2",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<span class=\"legal-divider\"></span>"
+                      }
+                    },
+                    {
+                      "id": "607f674",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Terms & Conditions",
+                        "link": {
+                          "url": "/terms-conditions",
+                          "is_external": false
+                        }
+                      }
+                    },
+                    {
+                      "id": "9843b2f",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<span class=\"legal-divider\"></span>"
+                      }
+                    },
+                    {
+                      "id": "bc72904",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Sitemap",
+                        "link": {
+                          "url": "/sitemap",
+                          "is_external": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
